@@ -1,0 +1,35 @@
+{
+  "name": "TASK MANAGER",
+  "version": "1.0.0",
+  "description": "",
+  "main": "manager.js",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm exec esbuild manager.js --bundle --platform=node --target=node18 --format=cjs --outfile=build/lib/manager.js --banner:js=\"#!/usr/bin/env node\"",
+    "pkg": "pnpm exec pkg ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.2",
+  "dependencies": {
+    "esbuild": "^0.28.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "bin": "build/lib/manager.js",
+  "pkg": {
+    "scripts": "build/lib/manager.js",
+    "assets": [
+      "tasks.json"
+    ],
+    "targets": [
+      "node18-linux-x64",
+      "node18-macos-x64",
+      "node18-win-x64"
+    ],
+    "outputPath": "build/NodeLib"
+  }
+}
